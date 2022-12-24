@@ -1,0 +1,33 @@
+.works-section,.footer {
+    background: rgba(0, 0, 0, 0.955);
+}
+.works-header {
+    max-width: 60%;
+}
+
+.contact {
+    height: 100px;
+}
+.socials div {
+    height: 150px;
+}
+.socials div p {
+    transition: all 200ms ease;
+}
+
+.work-img {
+    transition: all 0.5s ease;
+    opacity: 0;
+}
+
+.marque {
+    background: yellow;
+    
+}
+
+@media only screen and (max-width: 600px) {
+    .works-header {
+        max-width: 80%;
+    }
+    
+  }
