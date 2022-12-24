@@ -22,7 +22,7 @@ const Footer = ({setCursorVariant,setMailHover}) => {
           <p>INSTAGRAM</p>
         </div>
         <div className=' border-y lg:border-x text-white text-opacity-30 hover:text-opacity-100  border-white border-opacity-30 flex justify-center items-center text-4xl'>
-          <p>NFT'S</p>
+          <p>NFT&apos;S</p>
         </div>
         <div className=' flex text-white text-opacity-30 hover:text-opacity-100  justify-center items-center text-4xl'>
           <p>BEHANCE</p>
