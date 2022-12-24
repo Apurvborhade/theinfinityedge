@@ -10,6 +10,9 @@ import Menu from '../components/Menu'
 import {FiArrowUpRight} from 'react-icons/fi'
 
 export default function Home() {
+
+  useLenisScroll()
+
   const [mousePosition, setMousePosition] = useState({
     x:0,
     y:0
@@ -18,9 +21,6 @@ export default function Home() {
   const [cursorVariant,setCursorVariant] = useState("default")
   const [imageHover,setImageHover] = useState(false)
   const [mailHover,setMailHover] = useState(false)
-  useEffect(() => {
-    useLenisScroll()
-  },[])
 
   useEffect(() => {
 
