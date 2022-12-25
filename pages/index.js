@@ -13,72 +13,14 @@ export default function Home() {
 
   useLenisScroll()
 
-  const [mousePosition, setMousePosition] = useState({
-    x:0,
-    y:0
-  })
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [cursorVariant,setCursorVariant] = useState("default")
-  const [imageHover,setImageHover] = useState(false)
-  const [mailHover,setMailHover] = useState(false)
-
-  useEffect(() => {
-
-    const mouseMove = (e) => {
-      const cursor = document.querySelector(".cursor")
-      setMousePosition({
-        x:e.clientX - 25 + "px",
-        y:e.clientY - 25 + "px"
-      })
-      cursor.style.transform = `translate(${mousePosition.x},${mousePosition.y})`
-    }
-    window.addEventListener('mousemove',mouseMove)
-
-    return () => {
-      window.removeEventListener("mousemove",mouseMove)
-    }
-  }, [mousePosition])
   
-  const variants = {
-    default:{
-      backgroundColor:"black"
-    },
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-    text:{
-      height:80,
-      width:80,
-    },
-    section:{
-      backgroundColor:"white"
-    },
-    menu:{
-      backgroundColor:"white",
-      height:100,
-      width:100,
-    },
-    image:{
-      backgroundColor:"white",
-      height:100,
-      width:100,
-    },
-    big:{
-      backgroundColor:"white",
-      height:100,
-      width:100,
-    },
-    mail:{
-      backgroundColor:"white",
-      height:100,
-      width:100,
-    }
-  }
+  
+  
+  
 
-  const cursorEnterText = () => {
-    setCursorVariant("section")
-  }
-  const cursorLeaveText = () => {
-    setCursorVariant("default")
-  }
+  
 
   return (
     <>
@@ -89,23 +31,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       
-      <motion.div className={`cursor arial ${imageHover || cursorVariant==="mail" ? 'mix-blend-normal' : 'mix-blend-difference'} flex justify-center items-center arial `}
-          variants = {variants}
-          animate  = {cursorVariant}
-      >
-        {cursorVariant==="image" ? (
-          <FiArrowUpRight  size={30} className={'font-light'}/>
-        ) : null}
-        {cursorVariant==="mail" ? (
-          'Contact'
-        ) : null}
-      </motion.div>
-      <Header setCursorVariant={setCursorVariant} setIsMenuOpen={setIsMenuOpen}/>
-      <Menu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} setCursorVariant={setCursorVariant}/>
-      <Landing setCursorVariant={setCursorVariant}/>
-      <div onMouseEnter={() => cursorEnterText()} onMouseLeave={() => cursorLeaveText()}>
-        <Works setImageHover={setImageHover} setCursorVariant={setCursorVariant}/>
-        <Footer setCursorVariant={setCursorVariant} setMailHover={setMailHover}/>
+      
+      <Menu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+      <div>
+        <Header  setIsMenuOpen={setIsMenuOpen}/>
+        <Landing />
+      </div>
+      <div  >
+        <Works />
+        <Footer/>
       </div>
     </>
   )
